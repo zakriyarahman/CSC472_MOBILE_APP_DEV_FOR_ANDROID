@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Point of Sales</string>
+
+    <string name="btnNewOrder">New Order</string>
+    <string name="btnNewItem">New Item</string>
+    <string name="lblItem">Item: </string>
+    <string name="action_settings">Settings</string>
+    <string name="lblQuantity">Quantity</string>
+    <string name="lblUnitPrice">Unit Price</string>
+    <string name="btnTotal">TOTAL</string>
+    <string name="txtTotal">$0.00</string>
+</resources>

@@ -1,0 +1,55 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf110
+{\fonttbl\f0\fmodern\fcharset0 CourierNewPSMT;\f1\fmodern\fcharset0 CourierNewPS-BoldMT;\f2\fmodern\fcharset0 CourierNewPS-BoldItalicMT;
+\f3\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue128;\red102\green14\blue122;\red0\green128\blue0;
+}
+\margl1440\margr1440\vieww14240\viewh12600\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf0 API features:\
+We used location awareness by sending an implicit intent to google.  Since there is no actual zoom truck, we used a static address and let whatever map program the end users has set up handle directions to it.\
+This is ideal because it gives the end user the an interface that they are most familiar with.\
+\
+We used fragments to represent the menu and item customization tool.  There is ideal because on tablets one has the screen real estate necessary to see all of the menu items and simultaneously make customization choices about the one that is clicked on.  It was a significant struggle to adapt the standard Master/Detail into one that used a Handler and a custom view item. In the foodItemListFragment we used a HasMap of Food types and bitmaps for the icons combined with a Handler design pattern. The Handler was useful because we have images in each list item and there would be performance issues that handlers are good at minimizing.  We used a BaseAdapter instead of a extending an ArrayAdapter as the ArrayAdapter wouldn\'92t provide us the flexibility to use our custom list items.\
+\
+For the SummaryListActivity we implemented Gestures we using the GestureDectorCompat and that didn\'92t work because the Summary list was a ListActivity. We edited the XML file to be a regular Linear Layout wrapped around the ListView and then added a ListView object in the SummaryListActivity.java and set the adapter for that to my new SummaryAdapter that also extends the BaseAdapter and uses a handler pattern.  We also needed to set the content view to the activity summary XML.\
+\
+Features not in the lecture:\
+We added a feature to get back buttons on the pages at the top through by setting Hierarchical parents to our new Activities.\
+\
+We added a feature to delete items on the ArrayList adapter.  This was tough because all of the examples we found were for ListActivities that use ArrayAdapters and constructors that would take the an ArrayList as an argument .  Eventually we figured out that we just needed to remove the item from our Singleton and notify the adapter that the data had changed.  we added a total field that would iterate through and sum the prices of the Order Items also made it so that when an item was removed it would update that field.\
+\
+Since the final act of the app is an intent to the devices email program, we implemented a special button on the last page that would roll back all the activities and appropriately finish them.  We accomplished this by adding a code snippet to the final page \
+\
+
+\fs24 Intent intent = 
+\f1\b \cf2 new 
+\f0\b0 \cf0 Intent(SummaryListActivity.
+\f1\b \cf2 this
+\f0\b0 \cf0 , MainActivity.
+\f1\b \cf2 class
+\f0\b0 \cf0 );\uc0\u8232 intent.setFlags(Intent.
+\f2\i\b \cf3 FLAG_ACTIVITY_CLEAR_TOP
+\f0\i0\b0 \cf0 );\
+\
+and then on the MainActivity I added this code at the start of OnCreate method.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b \cf2 if 
+\f0\b0 \cf0 (getIntent().getBooleanExtra(
+\f1\b \cf4 "EXIT"
+\f0\b0 \cf0 , 
+\f1\b \cf2 false
+\f0\b0 \cf0 ))\{ finish(); \}\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+
+\fs28 Since the lecture didn\'92t describe how to tell directionality of fling gestures we figured out that we could deduce the direction of a fling from the value of the x and y velocities of the fling.  We also experimented with adding up and down flings but realized that they caused problems when trying to scroll up and down and so we removed it.\
+\
+The biggest problem I had with the Android SDK was that some code was required for some versions but removed from newer versions and the conflict created a double bind so I ended up doing my homework mostly on versions 21 and up. Hardware fragmentation is also a big issue which can pile up as I try to make my stuff work on things with a ridiculous number of screen sizes and densities.  I ended up having fewer menu items because I couldn\'92t get some of my icons to work right on some devices.  And testing to see if everything works on all those devices is incredibly time consuming.\
+\
+Overall my experience as an Android developer has been challenging but rewarding.  I like how the architecture is organized with security being flexible and open sources.  Zak and I were able to collaborate quite easily by using the Android studio\'92s built in Git tools and github.  Lately I\'92ve been playing around with encrypted communications and remote code execution and how that interacts with privilege elevation.
+\f3 \
+
+\f0 \
+Please see our documentation for a breakdown of our contributions.}

@@ -1,0 +1,177 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="edu.depaul.csc472.zrahman_remote_control.ZR_activity_dvr">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/top_layout_background_dvr"
+            android:padding="10dp"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/lbl_my_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textSize="30sp"
+                android:textColor="@color/top_layout_text"
+                android:layout_gravity="center"
+                android:text="@string/my_dvr"
+                android:textStyle="bold"
+                android:padding="6dp"/>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="2dp">
+
+                <TableRow>
+
+                    <TextView
+                        android:text="@string/dvr_power"
+                        android:textSize="18sp"
+                        android:textColor="@color/top_layout_text" />
+
+                    <Space
+                        android:layout_width="10dp"/>
+
+                    <TextView
+                        android:id="@+id/tv_power_status_indicator"
+                        android:text="@string/tv_power_status"
+                        android:textSize="15sp"
+                        android:textColor="@color/top_layout_text"
+                        android:gravity="left"/>
+
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:text="@string/lbl_state"
+                        android:textSize="18sp"
+                        android:textColor="@color/top_layout_text" />
+
+                    <Space
+                        android:layout_width="10dp"/>
+
+                    <TextView
+                        android:id="@+id/state_status"
+                        android:text="@string/state_status"
+                        android:textSize="15sp"
+                        android:textColor="@color/top_layout_text"
+                        android:gravity="left"/>
+                </TableRow>
+
+
+            </TableLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/my_remote_control"
+                android:textSize="26sp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="@color/my_remote_control"/>
+
+        </LinearLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+        </TableLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp">
+
+            <TableRow
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/power" />
+
+                <Switch
+                    android:id="@+id/swch_tv_power"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <Button
+                    android:id="@+id/btn_play"
+                    android:text="PLAY"
+                    android:layout_weight="1"/>
+
+                <Button
+                    android:id="@+id/btn_stop"
+                    android:text="STOP"
+                    android:layout_weight="1"/>
+
+                <Button
+                    android:id="@+id/btn_pause"
+                    android:text="PAUSE"
+                    android:layout_weight="1"/>
+
+            </TableRow>
+
+            <TableRow>
+
+                <Button
+                    android:id="@+id/btn_forward"
+                    android:text="FAST FORWARD"
+                    android:layout_weight="1"/>
+                <Button
+                    android:id="@+id/btn_rewind"
+                    android:text="FAST REWIND"
+                    android:layout_weight="1"/>
+
+            </TableRow>
+
+            <TableRow>
+
+                <Button
+                    android:id="@+id/btn_record"
+                    android:text="RECORD"/>
+
+            </TableRow>
+
+        </TableLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/swch_to_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SWITCH TO TV"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"/>
+
+</RelativeLayout>
